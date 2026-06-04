@@ -12,7 +12,7 @@ export function IsraelFounder() {
           <div className="founder-intro__brand">
             <Image
               src={siteConfig.logoLight}
-              alt={siteConfig.name}
+              alt="ISSTUDIO TECH — fundador Israel Soares"
               width={200}
               height={52}
               className="founder-intro__logo"

@@ -10,6 +10,7 @@ const navItems = [
   { href: "#solucoes", label: "Soluções" },
   { href: "#israel", label: "Fundador" },
   { href: "#servicos", label: "Serviços" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -40,7 +41,7 @@ export function SiteChrome() {
           <a href="#inicio" className="header__logo" onClick={closeMenu}>
             <Image
               src={siteConfig.logoLight}
-              alt={siteConfig.name}
+              alt="ISSTUDIO TECH — início"
               width={168}
               height={44}
               priority

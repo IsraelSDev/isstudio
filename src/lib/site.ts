@@ -21,6 +21,7 @@ export const siteConfig = {
   },
   logoDark: "/logo-dark.png",
   logoLight: "/logo-light.png",
+  favicon: "/favicon.ico",
   tagline: "Soluções digitais que transformam negócios",
   description:
     "Agência de tecnologia especializada em software sob medida, plataformas web, IA e produtos digitais de alto impacto.",
@@ -185,9 +186,19 @@ export type Solution = {
   tagline: string;
   description: string;
   url: string;
+  previewUrl?: string;
   accent: string;
   tags: string[];
   icon: string;
+};
+
+export const impactStats = {
+  clients: 200,
+  systems: 150,
+  years: 10,
+  headline: "Centenas de clientes. Centenas de sistemas entregues.",
+  subline:
+    "Mais de uma década entregando software, plataformas e produtos digitais para empresas em todo o Brasil.",
 };
 
 export const solutions: Solution[] = [
@@ -266,10 +277,10 @@ export const services = [
 ];
 
 export const stats = [
-  { value: 10, suffix: "+", label: "Anos de experiência" },
-  { value: 25, suffix: "+", label: "Clientes atendidos" },
-  { value: 22, suffix: "+", label: "Projetos entregues" },
-  { value: 100, suffix: "%", label: "Foco em qualidade" },
+  { value: impactStats.clients, suffix: "+", label: "Clientes atendidos" },
+  { value: impactStats.systems, suffix: "+", label: "Sistemas entregues" },
+  { value: impactStats.years, suffix: "+", label: "Anos de experiência" },
+  { value: 100, suffix: "%", label: "Compromisso com qualidade" },
 ];
 
 export const team = [

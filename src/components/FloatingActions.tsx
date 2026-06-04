@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AiAssistant } from "@/components/AiAssistant";
 import { siteConfig } from "@/lib/site";
 
 function IconArrowUp() {
@@ -41,6 +42,8 @@ export function FloatingActions() {
 
   return (
     <div className="floating-actions" aria-label="Ações rápidas">
+      <AiAssistant />
+
       <button
         type="button"
         className={`floating-actions__top ${showTop ? "floating-actions__top--visible" : ""}`}
