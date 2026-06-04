@@ -1,6 +1,13 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { AiExpertise } from "@/components/AiExpertise";
+import { FaqSection } from "@/components/FaqSection";
+import { ImpactBanner } from "@/components/ImpactBanner";
+import { LiveOrbs } from "@/components/LiveOrbs";
+import { PortfolioShowcase } from "@/components/PortfolioShowcase";
+import { StructuredData } from "@/components/StructuredData";
+import { homeMetadata } from "@/lib/seo";
 import { AnimatedCounters } from "@/components/AnimatedCounters";
 import { ContactForm } from "@/components/ContactForm";
 import { FloatingActions } from "@/components/FloatingActions";
@@ -14,15 +21,17 @@ import {
   processSteps,
   services,
   siteConfig,
-  solutions,
   stats,
   team,
   testimonials,
 } from "@/lib/site";
 
+export const metadata: Metadata = homeMetadata;
+
 export default function HomePage() {
   return (
     <>
+      <StructuredData />
       <ScrollProgress />
       <SiteChrome />
       <RevealObserver />
@@ -33,10 +42,11 @@ export default function HomePage() {
         <div className="page-bg__glow page-bg__glow--1" />
         <div className="page-bg__glow page-bg__glow--2" />
         <div className="page-bg__beam" />
+        <LiveOrbs />
       </div>
 
-      <main>
-        <section id="inicio" className="hero">
+      <main id="conteudo-principal">
+        <section id="inicio" className="hero" aria-label="Apresentação">
           <div className="hero__badge-float" aria-hidden>
             <span>AI</span>
             <span>SaaS</span>
@@ -51,15 +61,22 @@ export default function HomePage() {
                 <span className="eyebrow__bracket">/&gt;</span>
               </p>
               <h1 className="hero__title">
-                Especialistas em{" "}
-                <span className="hero__rotator-wrap">
-                  <RotatingWords />
+                <span className="sr-only">
+                  ISSTUDIO TECH — desenvolvimento de software, sites e inteligência
+                  artificial em Goiânia
+                </span>
+                <span aria-hidden="true">
+                  Especialistas em{" "}
+                  <span className="hero__rotator-wrap">
+                    <RotatingWords />
+                  </span>
                 </span>
               </h1>
               <p className="hero__lead">
-                Agência de tecnologia em Goiânia. Software, IA e produtos digitais
-                de alto impacto — Capivara, Mega Agro Group e MedSystem Pro são
-                prova do que entregamos.
+                Mais de uma década, <strong>200+ clientes</strong> e{" "}
+                <strong>150+ sistemas</strong> no ar. Software, IA e produtos
+                digitais em Goiânia — com Capivara, Mega Agro Group e MedSystem Pro
+                como vitrine ao vivo.
               </p>
               <div className="hero__actions">
                 <a href="#ia" className="btn btn--primary btn--glow">
@@ -83,56 +100,22 @@ export default function HomePage() {
           <TechMarquee />
         </section>
 
+        <ImpactBanner />
+
         <AiExpertise />
 
         <section id="solucoes" className="section section--alt">
           <div className="container">
             <header className="section-header" data-reveal>
-              <p className="section-label">Portfólio</p>
-              <h2>Produtos que já colocamos no ar</h2>
+              <p className="section-label">Portfólio ao vivo</p>
+              <h2>Sites e sistemas que já estão no ar</h2>
               <p className="section-desc">
-                Cada solução reflete nossa capacidade de entregar experiências
-                modernas, escaláveis e alinhadas ao mercado.
+                Navegue pelos produtos reais que desenvolvemos — pré-visualização
+                embutida e link para abrir em tela cheia.
               </p>
             </header>
 
-            <div className="solutions-grid">
-              {solutions.map((sol, i) => (
-                <article
-                  key={sol.id}
-                  className="solution-card"
-                  data-reveal
-                  style={
-                    {
-                      "--accent": sol.accent,
-                      "--delay": `${i * 80}ms`,
-                    } as CSSProperties
-                  }
-                >
-                  <div className="solution-card__top">
-                    <span className="solution-card__icon" aria-hidden>
-                      {sol.icon}
-                    </span>
-                    <div className="solution-card__tags">
-                      {sol.tags.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <h3>{sol.name}</h3>
-                  <p className="solution-card__tagline">{sol.tagline}</p>
-                  <p className="solution-card__desc">{sol.description}</p>
-                  <a
-                    href={sol.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="solution-card__link"
-                  >
-                    Visitar site →
-                  </a>
-                </article>
-              ))}
-            </div>
+            <PortfolioShowcase />
           </div>
         </section>
 
@@ -142,9 +125,9 @@ export default function HomePage() {
               <p className="section-label">Sobre a ISSTUDIO</p>
               <h2>Tecnologia com visão de produto e foco em resultado</h2>
               <p className="about-layout__text">
-                Liderada por quem vive código e IA no dia a dia, ajudamos marcas a
-                alcançar seu potencial no digital com metodologias ágeis e engenharia
-                de ponta.
+                Liderada por quem vive código e IA no dia a dia, já atendemos centenas
+                de empresas e colocamos centenas de sistemas em produção — com
+                metodologias ágeis e engenharia de ponta.
               </p>
               <ul className="about-pillars">
                 <li>
@@ -177,7 +160,7 @@ export default function HomePage() {
             <aside className="about-brand" data-reveal>
               <Image
                 src={siteConfig.logoLight}
-                alt={siteConfig.name}
+                alt="Logo ISSTUDIO TECH — agência de software e IA em Goiânia"
                 width={280}
                 height={74}
                 className="about-brand__logo"
@@ -291,6 +274,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <FaqSection />
+
         <section id="contato" className="section section--contact">
           <div className="container contact-grid">
             <div data-reveal>
@@ -332,7 +317,7 @@ export default function HomePage() {
           <a href="#inicio" className="footer__logo">
             <Image
               src={siteConfig.logoLight}
-              alt={siteConfig.name}
+              alt="ISSTUDIO TECH"
               width={140}
               height={36}
             />

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { homeMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const outfit = Outfit({
@@ -17,29 +20,16 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  ...homeMetadata,
   title: {
-    default: `${siteConfig.name} — Soluções em Tecnologia`,
+    default: homeMetadata.title as string,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
-  keywords: [
-    "desenvolvimento de software",
-    "agência de TI",
-    "Goiânia",
-    "ISSTUDIO",
-    "SaaS",
-    "aplicações web",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} — Soluções em Tecnologia`,
-    description: siteConfig.description,
-    images: [{ url: siteConfig.logoDark, width: 1200, height: 630, alt: siteConfig.name }],
+  icons: {
+    icon: [{ url: siteConfig.favicon, sizes: "any" }],
+    shortcut: siteConfig.favicon,
+    apple: siteConfig.favicon,
   },
-  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -55,7 +45,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${jetbrains.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
