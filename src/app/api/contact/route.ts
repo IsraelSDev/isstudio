@@ -53,11 +53,17 @@ export async function POST(request: Request) {
   );
 
   const data = (await res.json().catch(() => ({}))) as {
-    success?: string;
+    success?: boolean | string;
     message?: string;
   };
 
-  if (!res.ok) {
+  const ok =
+    res.ok &&
+    (data.success === true ||
+      data.success === "true" ||
+      (data.message ?? "").toLowerCase().includes("thanks"));
+
+  if (!ok) {
     return NextResponse.json(
       { error: data.message ?? "Não foi possível enviar. Tente novamente." },
       { status: 502 },

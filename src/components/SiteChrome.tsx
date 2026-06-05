@@ -11,7 +11,7 @@ const navItems = [
   { href: "#israel", label: "Fundador" },
   { href: "#servicos", label: "Serviços" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contato", label: "Contato" },
+  // { href: "#contato", label: "Contato" },
 ];
 
 export function SiteChrome() {

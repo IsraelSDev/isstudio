@@ -5,12 +5,12 @@ import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-function openMailto(nome: string, email: string, assunto: string, mensagem: string) {
-  const body = encodeURIComponent(
-    `Olá, ISSTUDIO!\n\nNome: ${nome}\nE-mail: ${email}\n\n${mensagem}`,
-  );
-  const subject = encodeURIComponent(`[ISSTUDIO] ${assunto}`);
-  window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${encodeURIComponent(siteConfig.email)}`;
+
+function isFormSubmitSuccess(data: { success?: boolean | string; message?: string }) {
+  if (data.success === true || data.success === "true") return true;
+  const msg = (data.message ?? "").toLowerCase();
+  return msg.includes("thanks") || msg.includes("thank");
 }
 
 export function ContactForm() {
@@ -30,36 +30,54 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, assunto, mensagem }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: nome,
+          email,
+          _replyto: email,
+          _subject: `[ISSTUDIO] ${assunto}`,
+          message: mensagem,
+          _template: "table",
+          _captcha: "false",
+        }),
       });
 
-      const json = (await res.json()) as { ok?: boolean; error?: string };
+      const json = (await res.json().catch(() => ({}))) as {
+        success?: boolean | string;
+        message?: string;
+      };
 
-      if (!res.ok) {
-        if (res.status === 502 || res.status === 503) {
-          openMailto(nome, email, assunto, mensagem);
-          setStatus("success");
-          form.reset();
-          return;
-        }
-        throw new Error(json.error ?? "Erro ao enviar.");
+      if (!res.ok || !isFormSubmitSuccess(json)) {
+        throw new Error(
+          json.message ??
+            "Não foi possível enviar agora. Confirme o e-mail no FormSubmit ou use o WhatsApp.",
+        );
       }
 
       setStatus("success");
       form.reset();
     } catch (err) {
       setErrorMsg(
-        err instanceof Error ? err.message : "Não foi possível enviar. Tente de novo.",
+        err instanceof Error
+          ? err.message
+          : "Não foi possível enviar. Tente novamente ou use o WhatsApp.",
       );
       setStatus("error");
     }
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form
+      id="formulario-contato"
+      className="contact-form"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <div className="contact-form__grid">
         <label className="field">
           <span>Nome</span>
@@ -86,7 +104,8 @@ export function ContactForm() {
 
       {status === "error" && (
         <p className="contact-form__error" role="alert">
-          {errorMsg}
+          {errorMsg}{" "}
+          <a href={siteConfig.whatsappHref}>Falar no WhatsApp</a>
         </p>
       )}
 
@@ -110,8 +129,7 @@ export function ContactForm() {
       </button>
 
       <p className="contact-form__hint">
-        As mensagens são enviadas para{" "}
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+        O formulário envia direto para {siteConfig.email} — sem abrir o app de e-mail.
       </p>
     </form>
   );

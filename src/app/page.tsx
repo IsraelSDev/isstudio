@@ -53,8 +53,9 @@ export default function HomePage() {
             <span>Cloud</span>
           </div>
 
-          <div className="container hero__top">
-            <div className="hero__content" data-reveal>
+          <div className="container hero__inner">
+            <div className="hero__top">
+              <div className="hero__content" data-reveal>
               <p className="eyebrow eyebrow--animated">
                 <span className="eyebrow__bracket">&lt;</span>
                 ISSTUDIO TECH
@@ -86,18 +87,19 @@ export default function HomePage() {
                   Iniciar um projeto
                 </a>
               </div>
+              </div>
+
+              <div className="hero__visual" data-reveal>
+                <TypewriterTerminal />
+              </div>
             </div>
 
-            <div className="hero__visual" data-reveal>
-              <TypewriterTerminal />
+            <div className="hero__stats-wrap" data-reveal>
+              <AnimatedCounters stats={stats} />
             </div>
-          </div>
 
-          <div className="container hero__stats-wrap" data-reveal>
-            <AnimatedCounters stats={stats} />
+            <TechMarquee />
           </div>
-
-          <TechMarquee />
         </section>
 
         <ImpactBanner />
@@ -288,7 +290,7 @@ export default function HomePage() {
               <ul className="contact-info">
                 <li>
                   <span className="contact-info__label">E-mail</span>
-                  <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+                  <a href="#formulario-contato">{siteConfig.email}</a>
                 </li>
                 <li>
                   <span className="contact-info__label">Telefone</span>
