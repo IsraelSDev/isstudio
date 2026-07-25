@@ -3,6 +3,7 @@ export const siteConfig = {
   legalName: "ISSTUDIO TECH",
   cnpj: "64.712.734/0001-86",
   url: "https://www.isstudio.com.br",
+  storeUrl: "https://store.isstudio.com.br",
   email: "contato@isstudio.com.br",
   phone: "(62) 99364-5927",
   phoneHref: "tel:+5562993645927",
@@ -202,6 +203,17 @@ export const impactStats = {
 };
 
 export const solutions: Solution[] = [
+  {
+    id: "store",
+    name: "ISStudio Store",
+    tagline: "Marketplace de soluções digitais",
+    description:
+      "E-commerce de soluções premium da ISSTUDIO: sistemas, APIs, templates, plugins, SaaS, IA, white label, hospedagem e assinaturas — prontas para vender e escalar.",
+    url: siteConfig.storeUrl,
+    accent: "#0096ff",
+    tags: ["Marketplace", "SaaS", "IA"],
+    icon: "▣",
+  },
   {
     id: "capivara",
     name: "Capivara",

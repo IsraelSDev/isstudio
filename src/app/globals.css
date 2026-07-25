@@ -2378,6 +2378,7 @@ address {
 }
 
 .floating-actions__top,
+.floating-actions__store,
 .floating-actions__whatsapp {
   display: flex;
   align-items: center;
@@ -2414,6 +2415,45 @@ address {
   border-color: var(--cyan);
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(0, 212, 255, 0.25);
+}
+
+.floating-actions__store {
+  gap: 0.45rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00d4ff, #0096ff);
+  color: #001a4d;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  animation: store-bounce 1.4s ease-in-out infinite;
+}
+
+.floating-actions__store:hover {
+  animation-play-state: paused;
+  background: linear-gradient(135deg, #4db8ff, #00d4ff);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 40px rgba(0, 212, 255, 0.5);
+}
+
+.floating-actions__store-label {
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+@keyframes store-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 28px rgba(0, 212, 255, 0.35);
+  }
+  40% {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 36px rgba(0, 212, 255, 0.55);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
 }
 
 .floating-actions__whatsapp {
@@ -2586,6 +2626,7 @@ address {
     text-align: center;
   }
 
+  .floating-actions__store,
   .floating-actions__whatsapp {
     width: 56px;
     height: 56px;
@@ -2593,6 +2634,7 @@ address {
     border-radius: 50%;
   }
 
+  .floating-actions__store-label,
   .floating-actions__whatsapp-label {
     display: none;
   }
@@ -2665,6 +2707,7 @@ address {
   .journey__step,
   .page-bg__beam,
   .btn--glow,
+  .floating-actions__store,
   .floating-actions__whatsapp,
   .ai-assistant__toggle,
   .live-orbs__orb,

@@ -26,6 +26,34 @@ function IconWhatsApp() {
   );
 }
 
+function IconStore() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 9.5V19a2 2 0 002 2h12a2 2 0 002-2V9.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 7.5L5.2 3.8A1 1 0 016.05 3.3h11.9a1 1 0 01.85.5L21 7.5H3z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 21v-6h6v6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function FloatingActions() {
   const [showTop, setShowTop] = useState(false);
 
@@ -53,6 +81,18 @@ export function FloatingActions() {
       >
         <IconArrowUp />
       </button>
+
+      <a
+        href={siteConfig.storeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-actions__store"
+        aria-label="Abrir ISStudio Store"
+        title="ISStudio Store — Marketplace de soluções"
+      >
+        <IconStore />
+        <span className="floating-actions__store-label">Store</span>
+      </a>
 
       <a
         href={siteConfig.whatsappHref}

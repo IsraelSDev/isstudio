@@ -17,6 +17,9 @@ importers:
       next:
         specifier: ^15.3.3
         version: 15.5.19(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      pnpm:
+        specifier: ^11.17.0
+        version: 11.17.0
       react:
         specifier: ^19.1.0
         version: 19.2.7
@@ -361,6 +364,11 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
+  pnpm@11.17.0:
+    resolution: {integrity: sha512-zKPOozKtJUu4QUX5ZtGfSHlhUhA0b8kseaBH8joNezzKPDeS8AdrofGDHSd++88KkRmzGppg7Kf7PWIx8zHvcg==}
+    engines: {node: '>=22.13'}
+    hasBin: true
+
   postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -605,6 +613,8 @@ snapshots:
       - babel-plugin-macros
 
   picocolors@1.1.1: {}
+
+  pnpm@11.17.0: {}
 
   postcss@8.4.31:
     dependencies:
