@@ -8,10 +8,10 @@ const navItems = [
   { href: "#inicio", label: "Início" },
   { href: "#ia", label: "IA" },
   { href: "#solucoes", label: "Soluções" },
+  { href: "#store", label: "Store" },
   { href: "#israel", label: "Fundador" },
   { href: "#servicos", label: "Serviços" },
   { href: "#faq", label: "FAQ" },
-  // { href: "#contato", label: "Contato" },
 ];
 
 export function SiteChrome() {

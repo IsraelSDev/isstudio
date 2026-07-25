@@ -6,6 +6,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { ImpactBanner } from "@/components/ImpactBanner";
 import { LiveOrbs } from "@/components/LiveOrbs";
 import { PortfolioShowcase } from "@/components/PortfolioShowcase";
+import { StorePromo } from "@/components/StorePromo";
 import { StructuredData } from "@/components/StructuredData";
 import { homeMetadata } from "@/lib/seo";
 import { AnimatedCounters } from "@/components/AnimatedCounters";
@@ -120,6 +121,8 @@ export default function HomePage() {
             <PortfolioShowcase />
           </div>
         </section>
+
+        <StorePromo />
 
         <section id="sobre" className="section section--about">
           <div className="container about-layout">

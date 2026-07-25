@@ -339,6 +339,96 @@ export const processSteps = [
   },
 ];
 
+export type StoreProduct = {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  price: string;
+  priceNote?: string;
+  badge?: string;
+  accent: string;
+};
+
+export const storePromo = {
+  eyebrow: "ISStudio Store",
+  title: "Soluções digitais prontas para vender e escalar",
+  description:
+    "Marketplace da ISSTUDIO com sistemas, APIs, templates, SaaS, IA e white label — código, licenças e assinaturas com suporte incluso.",
+  cta: "Explorar a loja",
+  categories: [
+    "Sistemas",
+    "APIs",
+    "Templates",
+    "SaaS",
+    "IA",
+    "White Label",
+    "Hospedagem",
+    "Assinaturas",
+  ],
+} as const;
+
+export const storeProducts: StoreProduct[] = [
+  {
+    id: "crm-pulse",
+    name: "CRM Pulse",
+    category: "Sistemas",
+    description: "CRM comercial completo com pipeline e automações.",
+    price: "R$ 2.490",
+    priceNote: "pagamento único",
+    badge: "Destaque",
+    accent: "#00d4ff",
+  },
+  {
+    id: "payments-api",
+    name: "Payments Gateway API",
+    category: "APIs",
+    description: "Abstração unificada Asaas + Mercado Pago + PayPal.",
+    price: "R$ 890",
+    priceNote: "pagamento único",
+    badge: "Popular",
+    accent: "#4db8ff",
+  },
+  {
+    id: "aurora-kit",
+    name: "Aurora SaaS Kit",
+    category: "Templates",
+    description: "Template de SaaS dark premium, pronto para customizar.",
+    price: "R$ 249",
+    priceNote: "pagamento único",
+    accent: "#0096ff",
+  },
+  {
+    id: "inbox-studio",
+    name: "Inbox Studio",
+    category: "SaaS",
+    description: "Inbox unificada para times de suporte e atendimento.",
+    price: "R$ 197",
+    priceNote: "/mês",
+    accent: "#38bdf8",
+  },
+  {
+    id: "agente-vendas",
+    name: "Agente de Vendas IA",
+    category: "IA",
+    description: "SDR virtual que qualifica leads e agenda reuniões.",
+    price: "R$ 497",
+    priceNote: "/mês",
+    badge: "Novo",
+    accent: "#22d3ee",
+  },
+  {
+    id: "studio-plus",
+    name: "Studio+",
+    category: "Assinaturas",
+    description: "Clube de soluções, créditos de API e descontos no catálogo.",
+    price: "R$ 79",
+    priceNote: "/mês",
+    badge: "Clube",
+    accent: "#67e8f9",
+  },
+];
+
 export const testimonials = [
   {
     quote:
