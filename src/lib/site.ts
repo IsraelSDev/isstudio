@@ -5,13 +5,13 @@ export const siteConfig = {
   url: "https://www.isstudio.com.br",
   storeUrl: "https://store.isstudio.com.br",
   email: "contato@isstudio.com.br",
-  phone: "(62) 99364-5927",
-  phoneHref: "tel:+5562993645927",
-  whatsapp: "5562993645927",
+  phone: "(13) 99131-3917",
+  phoneHref: "tel:+5513991313917",
+  whatsapp: "5513991313917",
   whatsappMessage:
     "Olá, ISSTUDIO! Vim pelo site e gostaria de conversar sobre um projeto.",
   whatsappHref:
-    "https://wa.me/5562993645927?text=Ol%C3%A1%2C%20ISSTUDIO!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
+    "https://wa.me/5513991313917?text=Ol%C3%A1%2C%20ISSTUDIO!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
   address: {
     street: "Avenida Paulista, 5",
     district: "Bela Vista",
