@@ -13,12 +13,12 @@ export const siteConfig = {
   whatsappHref:
     "https://wa.me/5562993645927?text=Ol%C3%A1%2C%20ISSTUDIO!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
   address: {
-    street: "Avenida Nápoli, 5",
-    district: "Residencial Eldorado",
-    cep: "74367-640",
-    city: "Goiânia",
-    state: "GO",
-    full: "Avenida Nápoli, 5, Residencial Eldorado — CEP 74367-640, Goiânia - GO",
+    street: "Avenida Paulista, 5",
+    district: "Bela Vista",
+    cep: "01311-000",
+    city: "São Paulo",
+    state: "SP",
+    full: "Avenida Paulista, 5, Bela Vista — CEP 01311-000, São Paulo - SP",
   },
   logoDark: "/logo-dark.png",
   logoLight: "/logo-light.png",
